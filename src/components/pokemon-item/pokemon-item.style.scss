@@ -1,0 +1,31 @@
+.pokemon-container{
+    width:250px;
+    height:250px;
+    border-color: black;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 15px;
+    box-shadow: 0 0 4px black;
+    flex: 0 0 15%;
+    margin: 10px;
+
+    &:hover{
+        background-color: red;
+        cursor: pointer;
+    }
+
+    .image-container{
+        display: flex;
+        width:80%;
+        margin: 0 auto;
+        margin-top: 5px;
+        .pokemon-image{
+            width:200px;
+            height:200px;
+        };
+    };
+
+    .text-container{
+        text-align: center;
+    }
+}
