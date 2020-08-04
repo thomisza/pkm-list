@@ -3,7 +3,9 @@ import {PokemonActionTypes} from './pokemon.types'
 const INITIAL_STATE = {
     pokemons:null,
     isFetching: false,
-    errorMessage:undefined
+    errorMessage:undefined,
+    searchText:undefined,
+    filteredPokemons: null
 };
 
 const pokemonReducer = (state = INITIAL_STATE, action) => {
@@ -17,7 +19,8 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 isFetching: false,
-                pokemons: action.payload
+                pokemons: action.payload,
+                filteredPokemons: action.payload
             }
         case PokemonActionTypes.GET_POKEMONS_FAILURE:
             return {
@@ -25,7 +28,12 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
                 isFetching: false,
                 errorMessage: action.payload
             }
-
+        case PokemonActionTypes.SEARCH_POKEMON:
+            var tempPkms = state.pokemons;
+            return {
+                ...state,
+                filteredPokemons: action.payload != "" ? tempPkms.filter(pkm => pkm.name.includes(action.payload)) : state.pokemons
+            }
         default:
             return state;
     }
