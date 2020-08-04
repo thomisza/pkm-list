@@ -11,7 +11,7 @@ const PokemonList = () => {
     }
 
     return (
-        <div className="container">
+        <div className="list-container">
             <div className="grid-container">
                 {pokemonList2 && pokemonList2.map((elt, index) =>
                     <PokemonItem pokemon={elt} key={index} id={index} navigate={navigate}/>
