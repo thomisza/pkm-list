@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import './pokemon-item.style.scss';
 
-const PokemonItem = ({pokemon: {name, url}, navigate, id}) => {
-    const image = `https://pokeres.bastionbot.org/images/pokemon/${id+1}.png`;
+const PokemonItem = ({pokemon: {name, url}, navigate}) => {
+    const id = url.substring(url.lastIndexOf('n/')+2, url.lastIndexOf('/'));
+
+    const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
     const [expanded, setExpanded] = useState(false);
 
     return (
