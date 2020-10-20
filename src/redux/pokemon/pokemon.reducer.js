@@ -32,7 +32,7 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
             var tempPkms = state.pokemons;
             return {
                 ...state,
-                filteredPokemons: action.payload != "" ? tempPkms.filter(pkm => pkm.name.includes(action.payload)) : state.pokemons
+                filteredPokemons: action.payload !== "" ? tempPkms.filter(pkm => pkm.name.includes(action.payload)) : state.pokemons
             }
         default:
             return state;
